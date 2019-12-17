@@ -554,9 +554,9 @@ default_charset = "UTF-8"
 ;output_encoding =
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;
-; Paths and Directories ;
-;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
+; 路径和目录 ;
+;;;;;;;;;;;;;;
 
 ; UNIX: "/path1:/path2"
 ;include_path = ".:/php/includes"
@@ -564,178 +564,154 @@ default_charset = "UTF-8"
 ; Windows: "\path1;\path2"
 ;include_path = ".;c:\php\includes"
 ;
-; PHP's default setting for include_path is ".;/path/to/php/pear"
+; include_path 默认的值是 ".;/path/to/php/pear"
 ; http://php.net/include-path
 
-; The root of the PHP pages, used only if nonempty.
-; if PHP was not compiled with FORCE_REDIRECT, you SHOULD set doc_root
-; if you are running php as a CGI under any web server (other than IIS)
-; see documentation for security issues.  The alternate is to use the
-; cgi.force_redirect configuration below
+; PHP页面的根目录，仅在非空时使用。
+; 如果PHP不是使用FORCE_REDIRECT编译的，则应设置doc_root
+; 如果您在任何Web服务器（IIS除外）下将php作为CGI运行，请参阅文档以了解安全性问题。  
+; 另一种方法是使用下面的cgi.force_redirect配置
 ; http://php.net/doc-root
 doc_root =
 
-; The directory under which PHP opens the script using /~username used only
-; if nonempty.
+; PHP使用/~用户名打开脚本的目录，该目录仅在非空时使用。
 ; http://php.net/user-dir
 user_dir =
 
-; Directory in which the loadable extensions (modules) reside.
+; 可加载的扩展（模块）所在的目录。
 ; http://php.net/extension-dir
 ;extension_dir = "./"
 ; On windows:
 ;extension_dir = "ext"
 
-; Directory where the temporary files should be placed.
-; Defaults to the system default (see sys_get_temp_dir)
+; 放置临时文件的目录。
+; 默认为系统默认值（请参阅sys_get_temp_dir）
 ;sys_temp_dir = "/tmp"
 
-; Whether or not to enable the dl() function.  The dl() function does NOT work
-; properly in multithreaded servers, such as IIS or Zeus, and is automatically
-; disabled on them.
+; 是否启用dl()函数。  
+; dl（）函数在多线程服务器（例如IIS或Zeus）中无法正常工作，并在它们上自动被禁用。
 ; http://php.net/enable-dl
 enable_dl = Off
 
-; cgi.force_redirect is necessary to provide security running PHP as a CGI under
-; most web servers.  Left undefined, PHP turns this on by default.  You can
-; turn it off here AT YOUR OWN RISK
-; **You CAN safely turn this off for IIS, in fact, you MUST.**
+; cgi.force_redirect是必需的，以提供在大多数Web服务器下将PHP作为CGI运行的安全性。
+; PHP默认情况下将其打开。 
+; 您可以自行承担将其关闭的风险
+; **实际上，您必须为IIS安全地关闭此功能。**
 ; http://php.net/cgi.force-redirect
 ;cgi.force_redirect = 1
 
-; if cgi.nph is enabled it will force cgi to always sent Status: 200 with
-; every request. PHP's default behavior is to disable this feature.
+; 如果启用了cgi.nph，它将强制cgi始终发送状态：每个请求200。 
+; PHP的默认行为是禁用此功能。
 ;cgi.nph = 1
 
-; if cgi.force_redirect is turned on, and you are not running under Apache or Netscape
-; (iPlanet) web servers, you MAY need to set an environment variable name that PHP
-; will look for to know it is OK to continue execution.  Setting this variable MAY
-; cause security issues, KNOW WHAT YOU ARE DOING FIRST.
+; 如启用了cgi.force_redirect, 您未在Apache或Netscape（iPlanet）Web服务器下运行，则可能需要设置一个环境变量名，PHP将查找该环境变量名以知道可以继续执行。
+; 设置此变量可能会导致安全问题，请首先了解您要做什么。
 ; http://php.net/cgi.redirect-status-env
 ;cgi.redirect_status_env =
 
-; cgi.fix_pathinfo provides *real* PATH_INFO/PATH_TRANSLATED support for CGI.  PHP's
-; previous behaviour was to set PATH_TRANSLATED to SCRIPT_FILENAME, and to not grok
-; what PATH_INFO is.  For more information on PATH_INFO, see the cgi specs.  Setting
-; this to 1 will cause PHP CGI to fix its paths to conform to the spec.  A setting
-; of zero causes PHP to behave as before.  Default is 1.  You should fix your scripts
-; to use SCRIPT_FILENAME rather than PATH_TRANSLATED.
+; cgi.fix_pathinfo为CGI提供*真实* PATH_INFO/PATH_TRANSLATED支持。  
+; PHP的先前行为是将PATH_TRANSLATED设置为SCRIPT_FILENAME，并且不获取PATH_INFO是什么。
+; 有关PATH_INFO的更多信息，请参见cgi规范。  
+; 将此设置为1将导致PHP CGI修复其路径以符合规范。  
+; 设置为零会导致PHP像以前一样运行。  
+; 默认值为1。
+; 您应该修复脚本以使用SCRIPT_FILENAME而不是PATH_TRANSLATED。
 ; http://php.net/cgi.fix-pathinfo
 ;cgi.fix_pathinfo=1
 
-; if cgi.discard_path is enabled, the PHP CGI binary can safely be placed outside
-; of the web tree and people will not be able to circumvent .htaccess security.
+; 如果启用cgi.discard_path，则可以将PHP CGI二进制文件安全地放置在Web树之外，并且人们将无法规避.htaccess安全性。
 ;cgi.discard_path=1
 
-; FastCGI under IIS supports the ability to impersonate
-; security tokens of the calling client.  This allows IIS to define the
-; security context that the request runs under.  mod_fastcgi under Apache
-; does not currently support this feature (03/17/2002)
-; Set to 1 if running under IIS.  Default is zero.
+; IIS下的FastCGI支持模拟调用客户端的安全令牌的功能。这使IIS可以定义在其下运行请求的安全上下文。  
+; Apache下的mod_fastcgi当前不支持此功能，如果在IIS下运行，则设置为1。 
+; 默认值为零。
 ; http://php.net/fastcgi.impersonate
 ;fastcgi.impersonate = 1
 
-; Disable logging through FastCGI connection. PHP's default behavior is to enable
-; this feature.
+; 通过FastCGI连接禁用日志记录。 PHP的默认行为是启用此功能。
 ;fastcgi.logging = 0
 
-; cgi.rfc2616_headers configuration option tells PHP what type of headers to
-; use when sending HTTP response code. If set to 0, PHP sends Status: header that
-; is supported by Apache. When this option is set to 1, PHP will send
-; RFC2616 compliant header.
-; Default is zero.
+; cgi.rfc2616_headers配置选项告诉PHP在发送HTTP响应代码时使用哪种类型的头。 
+; 如果设置为0，PHP将发送Apache支持的Status:标头。
+; 当此选项设置为1时，PHP将发送符合RFC2616的标头。
+; 默认值为零。
 ; http://php.net/cgi.rfc2616-headers
 ;cgi.rfc2616_headers = 0
 
-; cgi.check_shebang_line controls whether CGI PHP checks for line starting with #!
-; (shebang) at the top of the running script. This line might be needed if the
-; script support running both as stand-alone script and via PHP CGI<. PHP in CGI
-; mode skips this line and ignores its content if this directive is turned on.
+; cgi.check_shebang_line控制CGI PHP是否检查运行脚本的顶部以#开头的行.
+; 如果脚本支持既作为独立脚本又通过PHP CGI <运行，则可能需要此行。 
+; 如果启用了此指令，则处于CGI模式的PHP将跳过此行，并忽略其内容。
 ; http://php.net/cgi.check-shebang-line
 ;cgi.check_shebang_line=1
 
-;;;;;;;;;;;;;;;;
-; File Uploads ;
-;;;;;;;;;;;;;;;;
 
-; Whether to allow HTTP file uploads.
+;;;;;;;;;;;;
+; 文件上传 ;
+;;;;;;;;;;;;
+
+; 是否允许HTTP文件上传。
 ; http://php.net/file-uploads
 file_uploads = On
 
-; Temporary directory for HTTP uploaded files (will use system default if not
-; specified).
+; HTTP上传文件的临时目录（如果未指定，将使用系统默认值）。
 ; http://php.net/upload-tmp-dir
 ;upload_tmp_dir =
 
-; Maximum allowed size for uploaded files.
+; 上载文件的最大允许大小。
 ; http://php.net/upload-max-filesize
 upload_max_filesize = 2M
 
-; Maximum number of files that can be uploaded via a single request
+; 通过单个请求可以上传的最大文件数。
 max_file_uploads = 20
 
 ;;;;;;;;;;;;;;;;;;
 ; Fopen wrappers ;
 ;;;;;;;;;;;;;;;;;;
 
-; Whether to allow the treatment of URLs (like http:// or ftp://) as files.
+; 是否允许将URL（例如http://或ftp://）视为文件。
 ; http://php.net/allow-url-fopen
 allow_url_fopen = On
 
-; Whether to allow include/require to open URLs (like http:// or ftp://) as files.
+; 是否允许包含/需要打开URL（例如http://或ftp://）作为文件。
 ; http://php.net/allow-url-include
 allow_url_include = Off
 
-; Define the anonymous ftp password (your email address). PHP's default setting
-; for this is empty.
+; 定义匿名ftp密码（您的电子邮件地址）。 
+; PHP的默认设置为空。
 ; http://php.net/from
 ;from="john@doe.com"
 
-; Define the User-Agent string. PHP's default setting for this is empty.
+; 定义用户代理字符串。 
+; PHP的默认设置为空。
 ; http://php.net/user-agent
 ;user_agent="PHP"
 
-; Default timeout for socket based streams (seconds)
+; 基于套接字的流的默认超时（秒）
 ; http://php.net/default-socket-timeout
 default_socket_timeout = 60
 
-; If your scripts have to deal with files from Macintosh systems,
-; or you are running on a Mac and need to deal with files from
-; unix or win32 systems, setting this flag will cause PHP to
-; automatically detect the EOL character in those files so that
-; fgets() and file() will work regardless of the source of the file.
+; 如果您的脚本必须处理Macintosh系统中的文件，或者您正在Mac上运行，
+; 并且需要处理unix或win32系统中的文件，则设置此标志将使PHP自动检测这些文件中的EOL字符，
+; 以便fgets（ ）和file（）将起作用，而不管文件的来源。
 ; http://php.net/auto-detect-line-endings
 ;auto_detect_line_endings = Off
 
-;;;;;;;;;;;;;;;;;;;;;;
-; Dynamic Extensions ;
-;;;;;;;;;;;;;;;;;;;;;;
 
-; If you wish to have an extension loaded automatically, use the following
-; syntax:
-;
+;;;;;;;;;;;;
+; 动态扩展 ;
+;;;;;;;;;;;;
+
+; 如果您希望自动加载扩展程序，请使用以下命令
+; 语法:
 ;   extension=modulename
-;
-; For 例子:
-;
+; 例子:
 ;   extension=mysqli
-;
-; When the extension library to load is not located in the default extension
-; directory, You may specify an absolute path to the library file:
-;
+; 当要加载的扩展库不在默认扩展目录中时，您可以指定库文件的绝对路径:
 ;   extension=/path/to/extension/mysqli.so
 ;
-; Note : The syntax used in previous PHP versions ('extension=<ext>.so' and
-; 'extension='php_<ext>.dll') is supported for legacy reasons and may be
-; deprecated in a future PHP major version. So, when it is possible, please
-; move to the new ('extension=<ext>) syntax.
-;
-; Notes for Windows environments :
-;
-; - Many DLL files are located in the extensions/ (PHP 4) or ext/ (PHP 5+)
-;   extension folders as well as the separate PECL DLL download (PHP 5+).
-;   Be sure to appropriately set the extension_dir directive.
-;
+; 注意: 出于遗留原因，支持以前的PHP版本中使用的语法（“ extension = <ext> .so”和“ extension ='php_ <ext> .dll”），
+; 并且在以后的PHP主版本中可能会弃用该语法。因此，请尽可能使用新的（'extension = <ext>）语法。
+; 
 ;extension=bz2
 ;extension=curl
 ;extension=ffi
@@ -747,9 +723,9 @@ default_socket_timeout = 60
 ;extension=imap
 ;extension=ldap
 ;extension=mbstring
-;extension=exif      ; Must be after mbstring as it depends on it
+;extension=exif      ; 必须在mbstring之后，因为这依赖于它
 ;extension=mysqli
-;extension=oci8_12c  ; Use with Oracle Database 12c Instant Client
+;extension=oci8_12c  ; 与Oracle Database 12c Instant Client一起使用
 ;extension=odbc
 ;extension=openssl
 ;extension=pdo_firebird
@@ -761,7 +737,7 @@ default_socket_timeout = 60
 ;extension=pgsql
 ;extension=shmop
 
-; The MIBS data available in the PHP distribution must be installed.
+; 必须安装PHP发行版中可用的MIBS数据。
 ; See http://www.php.net/manual/en/snmp.installation.php
 ;extension=snmp
 
@@ -773,16 +749,17 @@ default_socket_timeout = 60
 ;extension=xmlrpc
 ;extension=xsl
 
-;;;;;;;;;;;;;;;;;;;
-; Module Settings ;
-;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;
+; 模块设置 ;
+;;;;;;;;;;;;
 
 [CLI Server]
-; Whether the CLI web server uses ANSI color coding in its terminal output.
+; CLI Web服务器是否在其终端输出中使用ANSI颜色编码。
 cli_server.color = On
 
 [Date]
-; Defines the default timezone used by the date functions
+; 定义日期函数使用的默认时区
 ; http://php.net/date.timezone
 ;date.timezone =
 
@@ -806,76 +783,68 @@ cli_server.color = On
 ;filter.default_flags =
 
 [iconv]
-; Use of this INI entry is deprecated, use global input_encoding instead.
-; If empty, default_charset or input_encoding or iconv.input_encoding is used.
-; The precedence is: default_charset < input_encoding < iconv.input_encoding
+; 不建议使用此INI条目，而应使用global input_encoding
+; 如果为空，则使用default_charset或input_encoding或iconv.input_encoding
+; 优先级为: default_charset < input_encoding < iconv.input_encoding
 ;iconv.input_encoding =
 
-; Use of this INI entry is deprecated, use global internal_encoding instead.
-; If empty, default_charset or internal_encoding or iconv.internal_encoding is used.
-; The precedence is: default_charset < internal_encoding < iconv.internal_encoding
+; 不建议使用此INI条目，而应使用global internal_encoding
+; 如果为空，则使用default_charset或internal_encoding或iconv.internal_encoding
+; 优先级为: default_charset < internal_encoding < iconv.internal_encoding
 ;iconv.internal_encoding =
 
-; Use of this INI entry is deprecated, use global output_encoding instead.
-; If empty, default_charset or output_encoding or iconv.output_encoding is used.
-; The precedence is: default_charset < output_encoding < iconv.output_encoding
-; To use an output encoding conversion, iconv's output handler must be set
-; otherwise output encoding conversion cannot be performed.
+; 不建议使用此INI条目，而应使用全局output_encoding。
+; 如果为空，则使用default_charset或output_encoding或iconv.output_encoding
+; 优先级为: default_charset < output_encoding < iconv.output_encoding
+; 要使用输出编码转换，必须设置iconv的输出处理程序，否则无法执行输出编码转换。
 ;iconv.output_encoding =
 
 [imap]
-; rsh/ssh logins are disabled by default. Use this INI entry if you want to
-; enable them. Note that the IMAP library does not filter mailbox names before
-; passing them to rsh/ssh command, thus passing untrusted data to this function
-; with rsh/ssh enabled is insecure.
+; 默认情况下，禁用rsh/ssh登录。 
+; 如果要启用它们，请使用此INI条目。
+; 请注意，在将邮箱名称传递给rsh/ssh命令之前，IMAP库不会对其进行过滤，因此在启用rsh/ssh的情况下，将不受信任的数据传递至此函数是不安全的。
 ;imap.enable_insecure_rsh=0
 
 [intl]
 ;intl.default_locale =
-; This directive allows you to produce PHP errors when some error
-; happens within intl functions. The value is the level of the error produced.
-; Default is 0, which does not produce any errors.
+; 当intl函数中发生某些错误时，此指令允许您产生PHP错误。 
+; 该值是产生的错误级别。
+；默认值为0，不会产生任何错误。
 ;intl.error_level = E_WARNING
 ;intl.use_exceptions = 0
 
 [sqlite3]
-; Directory pointing to SQLite3 extensions
+; 指向SQLite3扩展的目录
 ; http://php.net/sqlite3.extension-dir
 ;sqlite3.extension_dir =
 
-; SQLite defensive mode flag (only available from SQLite 3.26+)
-; When the defensive flag is enabled, language features that allow ordinary
-; SQL to deliberately corrupt the database file are disabled. This forbids
-; writing directly to the schema, shadow tables (eg. FTS data tables), or
-; the sqlite_dbpage virtual table.
+; SQLite防御模式标志（仅从SQLite 3.26+起可用）当启用防御标志时，将禁用允许普通SQL故意破坏数据库文件的语言功能。 
+; 这禁止直接写入架构，影子表（例如FTS数据表）或sqlite_dbpage虚拟表。
+; (对于较旧的SQLite版本，此标志没有用)
 ; https://www.sqlite.org/c3ref/c_dbconfig_defensive.html
-; (for older SQLite versions, this flag has no use)
 ;sqlite3.defensive = 1
 
 [Pcre]
-; PCRE library backtracking limit.
+; PCRE库回溯限制。
 ; http://php.net/pcre.backtrack-limit
 ;pcre.backtrack_limit=100000
 
-; PCRE library recursion limit.
-; Please note that if you set this value to a high number you may consume all
-; the available process stack and eventually crash PHP (due to reaching the
-; stack size limit imposed by the Operating System).
+; PCRE库递归限制。
+; 请注意，如果将此值设置为较高的值，则可能会消耗所有可用的进程堆栈，并最终导致PHP崩溃（由于达到操作系统施加的堆栈大小限制）。
 ; http://php.net/pcre.recursion-limit
 ;pcre.recursion_limit=100000
 
-; Enables or disables JIT compilation of patterns. This requires the PCRE
-; library to be compiled with JIT support.
+; 启用或禁用JIT模式编译。 这要求PCRE库在JIT支持下进行编译。
 ;pcre.jit=1
 
 [Pdo]
-; Whether to pool ODBC connections. Can be one of "strict", "relaxed" or "off"
+; 是否合并ODBC连接。 可以是“strict”，“relaxed”或“off”之一
 ; http://php.net/pdo-odbc.connection-pooling
 ;pdo_odbc.connection_pooling=strict
 
 [Pdo_mysql]
-; Default socket name for local MySQL connects.  If empty, uses the built-in
-; MySQL defaults.
+; 本地MySQL连接的默认套接字名称。 
+; 如果为空，则使用内置的MySQL默认值。
 pdo_mysql.default_socket=
 
 [Phar]
@@ -888,32 +857,29 @@ pdo_mysql.default_socket=
 ;phar.cache_list =
 
 [mail function]
-; For Win32 only.
+; 仅适用于Win32。
 ; http://php.net/smtp
 SMTP = localhost
 ; http://php.net/smtp-port
 smtp_port = 25
 
-; For Win32 only.
+; 仅适用于Win32。
 ; http://php.net/sendmail-from
 ;sendmail_from = me@例子.com
 
-; For Unix only.  You may supply arguments as well (default: "sendmail -t -i").
+; 仅适用于Unix。 您也可以提供参数（默认值：“sendmail -t -i”）
 ; http://php.net/sendmail-path
 ;sendmail_path =
 
-; Force the addition of the specified parameters to be passed as extra parameters
-; to the sendmail binary. These parameters will always replace the value of
-; the 5th parameter to mail().
+; 强制将指定参数的添加作为额外参数传递给sendmail二进制文件。 这些参数将始终替换mail（）的第5个参数的值。
 ;mail.force_extra_parameters =
 
-; Add X-PHP-Originating-Script: that will include uid of the script followed by the filename
+; 添加X-PHP-Originating-Script：它将包含脚本的uid和文件名
 mail.add_x_header = Off
 
-; The path to a log file that will log all mail() calls. Log entries include
-; the full path of the script, line number, To address and headers.
+; 将记录所有mail（）调用的日志文件的路径。 日志条目包括脚本的完整路径，行号，收件人地址和标题。
 ;mail.log =
-; Log mail to syslog (Event Log on Windows).
+; 将邮件记录到syslog（Windows上的事件日志）
 ;mail.log = syslog
 
 [ODBC]
@@ -926,203 +892,181 @@ mail.add_x_header = Off
 ; http://php.net/odbc.default-pw
 ;odbc.default_pw    =  Not yet implemented
 
-; Controls the ODBC cursor model.
-; Default: SQL_CURSOR_STATIC (default).
+; 控制ODBC游标模型。
+; 默认值：SQL_CURSOR_STATIC
 ;odbc.default_cursortype
 
-; Allow or prevent persistent links.
+; 允许或阻止持久链接。
 ; http://php.net/odbc.allow-persistent
 odbc.allow_persistent = On
 
-; Check that a connection is still valid before reuse.
+; 重用之前，请检查连接是否仍然有效。
 ; http://php.net/odbc.check-persistent
 odbc.check_persistent = On
 
-; Maximum number of persistent links.  -1 means no limit.
+; 永久链接的最大数量。 -1表示没有限制。
 ; http://php.net/odbc.max-persistent
 odbc.max_persistent = -1
 
-; Maximum number of links (persistent + non-persistent).  -1 means no limit.
+; 链接的最大数量（永久+非永久）。 -1表示没有限制。
 ; http://php.net/odbc.max-links
 odbc.max_links = -1
 
-; Handling of LONG fields.  Returns number of bytes to variables.  0 means
-; passthru.
+; 处理长字段。 返回变量的字节数。 0表示直通。
 ; http://php.net/odbc.defaultlrl
 odbc.defaultlrl = 4096
 
-; Handling of binary data.  0 means passthru, 1 return as is, 2 convert to char.
-; See the documentation on odbc_binmode and odbc_longreadlen for an explanation
-; of odbc.defaultlrl and odbc.defaultbinmode
+; 处理二进制数据。 0表示直通，1表示原样返回，2表示转换为char
 ; http://php.net/odbc.defaultbinmode
 odbc.defaultbinmode = 1
 
 [MySQLi]
 
-; Maximum number of persistent links.  -1 means no limit.
+; 永久链接的最大数量。 -1表示没有限制。
 ; http://php.net/mysqli.max-persistent
 mysqli.max_persistent = -1
 
-; Allow accessing, from PHP's perspective, local files with LOAD DATA statements
+; 从PHP的角度来看，允许使用LOAD DATA语句访问本地文件
 ; http://php.net/mysqli.allow_local_infile
 ;mysqli.allow_local_infile = On
 
-; Allow or prevent persistent links.
+; 允许或阻止持久链接。
 ; http://php.net/mysqli.allow-persistent
 mysqli.allow_persistent = On
 
-; Maximum number of links.  -1 means no limit.
+; 最大链接数。 -1表示没有限制。
 ; http://php.net/mysqli.max-links
 mysqli.max_links = -1
 
-; Default port number for mysqli_connect().  If unset, mysqli_connect() will use
-; the $MYSQL_TCP_PORT or the mysql-tcp entry in /etc/services or the
-; compile-time value defined MYSQL_PORT (in that order).  Win32 will only look
-; at MYSQL_PORT.
+; mysqli_connect（）的默认端口号。  
+; 如果未设置，则mysqli_connect()将使用$ MYSQL_TCP_PORT或/etc/services中的mysql-tcp条目，或使用MYSQL_PORT定义的编译时值（按此顺序）。
 ; http://php.net/mysqli.default-port
 mysqli.default_port = 3306
 
-; Default socket name for local MySQL connects.  If empty, uses the built-in
-; MySQL defaults.
+; 本地MySQL连接的默认套接字名称。 如果为空，则使用内置的MySQL默认值。
 ; http://php.net/mysqli.default-socket
 mysqli.default_socket =
 
-; Default host for mysqli_connect() (doesn't apply in safe mode).
+; mysqli_connect（）的默认主机（不适用于安全模式）。
 ; http://php.net/mysqli.default-host
 mysqli.default_host =
 
-; Default user for mysqli_connect() (doesn't apply in safe mode).
+; mysqli_connect（）的默认用户（不适用于安全模式）。
 ; http://php.net/mysqli.default-user
 mysqli.default_user =
 
-; Default password for mysqli_connect() (doesn't apply in safe mode).
-; Note that this is generally a *bad* idea to store passwords in this file.
-; *Any* user with PHP access can run 'echo get_cfg_var("mysqli.default_pw")
-; and reveal this password!  And of course, any users with read access to this
-; file will be able to reveal the password as well.
+; mysqli_connect（）的默认密码（不适用于安全模式）。
+; 请注意，在这里存储密码是一个很坏主意。
 ; http://php.net/mysqli.default-pw
 mysqli.default_pw =
 
-; Allow or prevent reconnect
+; 允许或阻止重新连接
 mysqli.reconnect = Off
 
 [mysqlnd]
-; Enable / Disable collection of general statistics by mysqlnd which can be
-; used to tune and monitor MySQL operations.
+; 通过mysqlnd启用/禁用常规统计信息收集，可用于调整和监视MySQL操作。
 mysqlnd.collect_statistics = On
 
-; Enable / Disable collection of memory usage statistics by mysqlnd which can be
-; used to tune and monitor MySQL operations.
+; 通过mysqlnd启用/禁用内存使用情况统计信息收集，可用于调整和监视MySQL操作。
 mysqlnd.collect_memory_statistics = Off
 
-; Records communication from all extensions using mysqlnd to the specified log
-; file.
+; 使用mysqlnd将所有扩展的通讯记录到指定的日志文件中。
 ; http://php.net/mysqlnd.debug
 ;mysqlnd.debug =
 
-; Defines which queries will be logged.
+; 定义将记录哪些查询。
 ;mysqlnd.log_mask = 0
 
-; Default size of the mysqlnd memory pool, which is used by result sets.
+; mysqlnd内存池的默认大小，由结果集使用。
 ;mysqlnd.mempool_default_size = 16000
 
-; Size of a pre-allocated buffer used when sending commands to MySQL in bytes.
+; 向MySQL发送命令时使用的预分配缓冲区的大小（以字节为单位）
 ;mysqlnd.net_cmd_buffer_size = 2048
 
-; Size of a pre-allocated buffer used for reading data sent by the server in
-; bytes.
+; 用于读取服务器发送的数据的预分配缓冲区的大小（以字节为单位）
 ;mysqlnd.net_read_buffer_size = 32768
 
-; Timeout for network requests in seconds.
+; 网络读请求超时（以秒为单位）。
 ;mysqlnd.net_read_timeout = 31536000
 
-; SHA-256 Authentication Plugin related. File with the MySQL server public RSA
-; key.
+; 与SHA-256身份验证插件有关。 使用MySQL服务器公共RSA密钥的文件。
 ;mysqlnd.sha256_server_public_key =
 
 [OCI8]
 
-; Connection: Enables privileged connections using external
-; credentials (OCI_SYSOPER, OCI_SYSDBA)
+; 连接：使用外部凭据（OCI_SYSOPER，OCI_SYSDBA）启用特权连接
 ; http://php.net/oci8.privileged-connect
 ;oci8.privileged_connect = Off
 
-; Connection: The maximum number of persistent OCI8 connections per
-; process. Using -1 means no limit.
+; 连接：每个进程的最大持续OCI8连接数。 使用-1表示没有限制。
 ; http://php.net/oci8.max-persistent
 ;oci8.max_persistent = -1
 
-; Connection: The maximum number of seconds a process is allowed to
-; maintain an idle persistent connection. Using -1 means idle
-; persistent connections will be maintained forever.
+; 连接：允许进程维护空闲持久连接的最大秒数。 
+; 使用-1表示空闲的持久连接将被永久维护。
 ; http://php.net/oci8.persistent-timeout
 ;oci8.persistent_timeout = -1
 
-; Connection: The number of seconds that must pass before issuing a
-; ping during oci_pconnect() to check the connection validity. When
-; set to 0, each oci_pconnect() will cause a ping. Using -1 disables
-; pings completely.
+; 连接：在oci_pconnect()期间发出ping命令以检查连接有效性之前必须经过的秒数。 
+; 设置为0时，每个oci_connect()都会导致ping。 
+; 使用-1完全禁用ping。
 ; http://php.net/oci8.ping-interval
 ;oci8.ping_interval = 60
 
-; Connection: Set this to a user chosen connection class to be used
-; for all pooled server requests with Oracle 11g Database Resident
-; Connection Pooling (DRCP).  To use DRCP, this value should be set to
-; the same string for all web servers running the same application,
-; the database pool must be configured, and the connection string must
-; specify to use a pooled server.
+; 连接：将此设置为用户选择的连接类别，该类别将用于Oracle 11g数据库常驻连接池（DRCP）的所有池服务器请求。  
+; 要使用DRCP，对于运行相同应用程序的所有Web服务器，应将此值设置为相同的字符串，必须配置数据库池，并且连接字符串必须指定为使用池化服务器。
 ;oci8.connection_class =
 
-; High Availability: Using On lets PHP receive Fast Application
-; Notification (FAN) events generated when a database node fails. The
-; database must also be configured to post FAN events.
+; 高可用性：使用On可使PHP接收数据库节点发生故障时生成的快速应用程序通知（FAN）事件。 
+; 数据库也必须配置为发布FAN事件。
 ;oci8.events = Off
 
-; Tuning: This option enables statement caching, and specifies how
-; many statements to cache. Using 0 disables statement caching.
+; 调整：此选项启用语句缓存，并指定要缓存的语句数。 
+; 使用0将禁用语句缓存。
 ; http://php.net/oci8.statement-cache-size
 ;oci8.statement_cache_size = 20
 
-; Tuning: Enables statement prefetching and sets the default number of
-; rows that will be fetched automatically after statement execution.
+; 调整：启用语句预取并设置语句执行后将自动获取的默认行数。
 ; http://php.net/oci8.default-prefetch
 ;oci8.default_prefetch = 100
 
-; Compatibility. Using On means oci_close() will not close
-; oci_connect() and oci_new_connect() connections.
+; 兼容性。 
+; 使用On表示oci_close()将不会关闭oci_connect()和oci_new_connect()连接。
 ; http://php.net/oci8.old-oci-close-semantics
 ;oci8.old_oci_close_semantics = Off
 
 [PostgreSQL]
-; Allow or prevent persistent links.
+; 允许或阻止持久链接。
 ; http://php.net/pgsql.allow-persistent
 pgsql.allow_persistent = On
 
-; Detect broken persistent links always with pg_pconnect().
-; Auto reset feature requires a little overheads.
+; 始终使用pg_pconnect()检测断开的持久链接。
+; 自动重置功能需要一点开销。
 ; http://php.net/pgsql.auto-reset-persistent
 pgsql.auto_reset_persistent = Off
 
-; Maximum number of persistent links.  -1 means no limit.
+; 永久链接的最大数量。 
+; -1表示没有限制。
 ; http://php.net/pgsql.max-persistent
 pgsql.max_persistent = -1
 
-; Maximum number of links (persistent+non persistent).  -1 means no limit.
+; 链接的最大数量（持久+非持久）。
+; -1表示没有限制。
 ; http://php.net/pgsql.max-links
 pgsql.max_links = -1
 
-; Ignore PostgreSQL backends Notice message or not.
-; Notice message logging require a little overheads.
+; 是否忽略PostgreSQL后端注意消息。
+; 注意消息日志记录需要一些开销。
 ; http://php.net/pgsql.ignore-notice
 pgsql.ignore_notice = 0
 
-; Log PostgreSQL backends Notice message or not.
-; Unless pgsql.ignore_notice=0, module cannot log notice message.
+; 是否记录PostgreSQL后端通知消息。
+; 除非pgsql.ignore_notice = 0，否则模块无法记录通知消息。
 ; http://php.net/pgsql.log-notice
 pgsql.log_notice = 0
 
 [bcmath]
-; Number of decimal digits for all bcmath functions.
+; 所有bcmath函数的小数位数。
 ; http://php.net/bcmath.scale
 bcmath.scale = 0
 
@@ -1131,198 +1075,158 @@ bcmath.scale = 0
 ;browscap = extra/browscap.ini
 
 [Session]
-; Handler used to store/retrieve data.
+; 用于存储/检索数据的处理程序。
 ; http://php.net/session.save-handler
 session.save_handler = files
 
-; Argument passed to save_handler.  In the case of files, this is the path
-; where data files are stored. Note: Windows users have to change this
-; variable in order to use PHP's session functions.
+; 参数传递给save_handler。  
+; 对于文件，这是存储数据文件的路径。 
+; 注意：Windows用户必须更改此变量才能使用PHP会话功能。
 ;
-; The path can be defined as:
-;
+; 路径可以定义为:
 ;     session.save_path = "N;/path"
 ;
-; where N is an integer.  Instead of storing all the session files in
-; /path, what this will do is use subdirectories N-levels deep, and
-; store the session data in those directories.  This is useful if
-; your OS has problems with many files in one directory, and is
-; a more efficient layout for servers that handle many sessions.
+; 其中N是整数。 
+; 与其将所有会话文件存储在/path中，不如使用N级子目录，并将会话数据存储在这些目录中。  
+; 如果您的操作系统在一个目录中存在许多文件问题，并且对处理多个会话的服务器来说是一种更有效的布局，则这很有用。
 ;
-; NOTE 1: PHP will not create this directory structure automatically.
-;         You can use the script in the ext/session dir for that purpose.
-; NOTE 2: See the section on garbage collection below if you choose to
-;         use subdirectories for session storage
+; NOTE 1: PHP不会自动创建此目录结构。 
+; NOTE 2: 如果您选择使用子目录进行会话存储，请参见下面有关垃圾回收的部分。
 ;
-; The file storage module creates files using mode 600 by default.
-; You can change that by using
-;
-;     session.save_path = "N;MODE;/path"
-;
-; where MODE is the octal representation of the mode. Note that this
-; does not overwrite the process's umask.
 ; http://php.net/session.save-path
 ;session.save_path = "/tmp"
 
-; Whether to use strict session mode.
-; Strict session mode does not accept an uninitialized session ID, and
-; regenerates the session ID if the browser sends an uninitialized session ID.
-; Strict mode protects applications from session fixation via a session adoption
-; vulnerability. It is disabled by default for maximum compatibility, but
-; enabling it is encouraged.
+; 是否使用严格的会话模式。
+; 严格会话模式不接受未初始化的会话ID，并且如果浏览器发送未初始化的会话ID，则重新生成会话ID。
+; 严格模式通过会话采用漏洞保护应用程序免于会话固定。 
+; 为了最大程度地兼容，默认情况下禁用该功能，但建议启用它。
 ; https://wiki.php.net/rfc/strict_sessions
 session.use_strict_mode = 0
 
-; Whether to use cookies.
+; 是否使用cookie。
 ; http://php.net/session.use-cookies
 session.use_cookies = 1
 
 ; http://php.net/session.cookie-secure
 ;session.cookie_secure =
 
-; This option forces PHP to fetch and use a cookie for storing and maintaining
-; the session id. We encourage this operation as it's very helpful in combating
-; session hijacking when not specifying and managing your own session id. It is
-; not the be-all and end-all of session hijacking defense, but it's a good start.
+; 此选项强制PHP获取和使用cookie来存储和维护会话ID。 
+; 我们鼓励执行此操作，因为它在不指定和管理您自己的会话ID时对打击会话劫持非常有帮助。 
+; 这不是会话劫持防御的全部，也是一个好的开始。
 ; http://php.net/session.use-only-cookies
 session.use_only_cookies = 1
 
-; Name of the session (used as cookie name).
+; 会话名称（用作cookie名称）。
 ; http://php.net/session.name
 session.name = PHPSESSID
 
-; Initialize session on request startup.
+; 在请求启动时初始化会话。
 ; http://php.net/session.auto-start
 session.auto_start = 0
 
-; Lifetime in seconds of cookie or, if 0, until browser is restarted.
+; Cookie的生存时间（以秒为单位），如果没有，则为0，直到重启浏览器为止。
 ; http://php.net/session.cookie-lifetime
 session.cookie_lifetime = 0
 
-; The path for which the cookie is valid.
+; Cookie有效的路径。
 ; http://php.net/session.cookie-path
 session.cookie_path = /
 
-; The domain for which the cookie is valid.
+; Cookie对其有效的域。
 ; http://php.net/session.cookie-domain
 session.cookie_domain =
 
-; Whether or not to add the httpOnly flag to the cookie, which makes it
-; inaccessible to browser scripting languages such as JavaScript.
+; 是否将httpOnly标志添加到cookie，这使得浏览器脚本语言（例如JavaScript）无法访问它。
 ; http://php.net/session.cookie-httponly
 session.cookie_httponly =
 
-; Add SameSite attribute to cookie to help mitigate Cross-Site Request Forgery (CSRF/XSRF)
-; Current valid values are "Lax" or "Strict"
+; 将SameSite属性添加到cookie以帮助缓解跨站点请求伪造（CSRF/XSRF）当前有效值为“Lax”或“Strict”
 ; https://tools.ietf.org/html/draft-west-first-party-cookies-07
 session.cookie_samesite =
 
-; Handler used to serialize data. php is the standard serializer of PHP.
+; 用于序列化数据的处理程序。 
+; php是PHP的标准序列化器。
 ; http://php.net/session.serialize-handler
 session.serialize_handler = php
 
-; Defines the probability that the 'garbage collection' process is started
-; on every session initialization. The probability is calculated by using
-; gc_probability/gc_divisor. Where session.gc_probability is the numerator
-; and gc_divisor is the denominator in the equation. Setting this value to 1
-; when the session.gc_divisor value is 100 will give you approximately a 1% chance
-; the gc will run on any given request.
+; 定义在每次会话初始化时启动“垃圾收集”过程的可能性。通过使用gc_probability/gc_divisor计算概率。其中session.gc_probability是分子，而gc_divisor是等式中的分母。
+; 在session.gc_divisor值为100时将此值设置为1，将使gc在任何给定请求上运行的可能性大约为1％。
 ; 默认值: 1
 ; 开发环境: 1
 ; 生产环境: 1
 ; http://php.net/session.gc-probability
 session.gc_probability = 1
 
-; Defines the probability that the 'garbage collection' process is started on every
-; session initialization. The probability is calculated by using the following equation:
-; gc_probability/gc_divisor. Where session.gc_probability is the numerator and
-; session.gc_divisor is the denominator in the equation. Setting this value to 100
-; when the session.gc_probability value is 1 will give you approximately a 1% chance
-; the gc will run on any given request. Increasing this value to 1000 will give you
-; a 0.1% chance the gc will run on any given request. For high volume production servers,
-; this is a more efficient approach.
+; 定义在每次会话初始化时启动“垃圾收集”过程的可能性。通过使用以下公式计算概率：gc_probability/gc_divisor。 其中session.gc_probability是分子，
+; 在session.gc_probability值为1时将此值设置为100，将使gc在任何给定请求上运行的可能性大约为1％。 
+; 将该值增加到1000，将使gc在任何给定请求上运行的可能性为0.1％。 对于批量生产的服务器，这是一种更有效的方法。
 ; 默认值: 100
 ; 开发环境: 1000
 ; 生产环境: 1000
 ; http://php.net/session.gc-divisor
 session.gc_divisor = 1000
 
-; After this number of seconds, stored data will be seen as 'garbage' and
-; cleaned up by the garbage collection process.
+; 在此秒数之后，存储的数据将被视为“垃圾”，并由垃圾收集过程清除。
 ; http://php.net/session.gc-maxlifetime
 session.gc_maxlifetime = 1440
 
-; NOTE: If you are using the subdirectory option for storing session files
-;       (see session.save_path above), then garbage collection does *not*
-;       happen automatically.  You will need to do your own garbage
-;       collection through a shell script, cron entry, or some other method.
-;       For 例子, the following script would is the equivalent of
-;       setting session.gc_maxlifetime to 1440 (1440 seconds = 24 minutes):
-;          find /path/to/sessions -cmin +24 -type f | xargs rm
+; NOTE: 如果您使用子目录选项来存储会话文件（请参见上面的session.save_path），那么垃圾回收不会自动发生。
+;		您将需要通过shell脚本，cron条目或其他方法来进行自己的垃圾收集。
+;       举个例子, 
+;		以下脚本等效于将session.gc_maxlifetime设置为1440（1440秒= 24分钟）: find/path/to/sessions-cmin+24-type f | xargs rm
 
-; Check HTTP Referer to invalidate externally stored URLs containing ids.
-; HTTP_REFERER has to contain this substring for the session to be
-; considered as valid.
+; 选中HTTP Referer，以使包含ID的外部存储URL无效。
+; HTTP_REFERER必须包含此子字符串，会话才能被视为有效。
 ; http://php.net/session.referer-check
 session.referer_check =
 
-; Set to {nocache,private,public,} to determine HTTP caching aspects
-; or leave this empty to avoid sending anti-caching headers.
+; 设置为{nocache，private，public}以确定HTTP缓存方面，或将其保留为空以避免发送反缓存标头。
 ; http://php.net/session.cache-limiter
 session.cache_limiter = nocache
 
-; Document expires after n minutes.
+; 文档在n分钟后过期。
 ; http://php.net/session.cache-expire
 session.cache_expire = 180
 
-; trans sid support is disabled by default.
-; Use of trans sid may risk your users' security.
-; Use this option with caution.
-; - User may send URL contains active session ID
-;   to other person via. email/irc/etc.
-; - URL that contains active session ID may be stored
-;   in publicly accessible computer.
-; - User may access your site with the same session ID
-;   always using URL stored in browser's history or bookmarks.
+; 默认情况下，use_trans_sid支持处于禁用状态。
+; 使用trans_sid可能会危及用户的安全。
+; 请谨慎使用此选项。
+; - 用户可能发送包含活动会话ID的URL通过。电子邮件/irc/etc。
+; - 包含活动会话ID的URL可以存储在可公开访问的计算机中。
+; - 用户可以始终使用存储在浏览器历史记录或书签中的URL使用相同的会话ID访问您的网站。
 ; http://php.net/session.use-trans-sid
 session.use_trans_sid = 0
 
-; Set session ID character length. This value could be between 22 to 256.
-; Shorter length than default is supported only for compatibility reason.
-; Users should use 32 or more chars.
+; 设置会话ID的字符长度。 该值可以在22到256之间。
+; 仅出于兼容性原因，才支持比默认长度短的长度。
+; 用户应使用32个或更多字符。
 ; http://php.net/session.sid-length
 ; 默认值: 32
 ; 开发环境: 26
 ; 生产环境: 26
 session.sid_length = 26
 
-; The URL rewriter will look for URLs in a defined set of HTML tags.
-; <form> is special; if you include them here, the rewriter will
-; add a hidden <input> field with the info which is otherwise appended
-; to URLs. <form> tag's action attribute URL will not be modified
-; unless it is specified.
-; Note that all valid entries require a "=", even if no value follows.
+; URL重写器将在一组定义的HTML标签中查找URL。
+; <form>是特殊的； 如果您在此处包括它们，重写器将添加一个隐藏的<input>字段，其中包含附加到URL上的信息。
+; 除非指定<form>标记的操作属性URL，否则不会对其进行修改。
+; 请注意，即使后面没有任何值，所有有效的条目也都需要一个“=”。
 ; 默认值: "a=href,area=href,frame=src,form="
 ; 开发环境: "a=href,area=href,frame=src,form="
 ; 生产环境: "a=href,area=href,frame=src,form="
 ; http://php.net/url-rewriter.tags
 session.trans_sid_tags = "a=href,area=href,frame=src,form="
 
-; URL rewriter does not rewrite absolute URLs by default.
-; To enable rewrites for absolute paths, target hosts must be specified
-; at RUNTIME. i.e. use ini_set()
-; <form> tags is special. PHP will check action attribute's URL regardless
-; of session.trans_sid_tags setting.
-; If no host is defined, HTTP_HOST will be used for allowed host.
-; 例子 value: php.net,www.php.net,wiki.php.net
-; Use "," for multiple hosts. No spaces are allowed.
+; 默认情况下，URL重写器不会重写绝对URL。
+; 要启用绝对路径的重写，必须在运行时指定目标主机。
+; <form>标记很特殊。 无论session.trans_sid_tags设置如何，PHP都会检查操作属性的URL。
+; 如果未定义主机，则HTTP_HOST将用于允许的主机。
+; 例子: php.net,www.php.net,wiki.php.net 对多个主机使用“，”。 不允许有空格。
 ; 默认值: ""
 ; 开发环境: ""
 ; 生产环境: ""
 ;session.trans_sid_hosts=""
 
-; Define how many bits are stored in each character when converting
-; the binary hash data to something readable.
+; 定义将二进制哈希数据转换为可读性时每个字符中存储多少位。
 ; Possible values:
 ;   4  (4 bits: 0-9, a-f)
 ;   5  (5 bits: 0-9, a-v)
@@ -1333,57 +1237,56 @@ session.trans_sid_tags = "a=href,area=href,frame=src,form="
 ; http://php.net/session.hash-bits-per-character
 session.sid_bits_per_character = 5
 
-; Enable upload progress tracking in $_SESSION
+; 在$_SESSION中启用上传进度跟踪
 ; 默认值: On
 ; 开发环境: On
 ; 生产环境: On
 ; http://php.net/session.upload-progress.enabled
 ;session.upload_progress.enabled = On
 
-; Cleanup the progress information as soon as all POST data has been read
-; (i.e. upload completed).
+; 读取所有POST数据（即完成上传）后，立即清理进度信息。
 ; 默认值: On
 ; 开发环境: On
 ; 生产环境: On
 ; http://php.net/session.upload-progress.cleanup
 ;session.upload_progress.cleanup = On
 
-; A prefix used for the upload progress key in $_SESSION
+; $_SESSION中用于上传进度键的前缀
 ; 默认值: "upload_progress_"
 ; 开发环境: "upload_progress_"
 ; 生产环境: "upload_progress_"
 ; http://php.net/session.upload-progress.prefix
 ;session.upload_progress.prefix = "upload_progress_"
 
-; The index name (concatenated with the prefix) in $_SESSION
-; containing the upload progress information
+; $_SESSION中的索引名称（与前缀连接）
+; 包含上传进度信息
 ; 默认值: "PHP_SESSION_UPLOAD_PROGRESS"
 ; 开发环境: "PHP_SESSION_UPLOAD_PROGRESS"
 ; 生产环境: "PHP_SESSION_UPLOAD_PROGRESS"
 ; http://php.net/session.upload-progress.name
 ;session.upload_progress.name = "PHP_SESSION_UPLOAD_PROGRESS"
 
-; How frequently the upload progress should be updated.
-; Given either in percentages (per-file), or in bytes
+; 上传进度应多久更新一次。
+; 以百分比（每个文件）或字节为单位
 ; 默认值: "1%"
 ; 开发环境: "1%"
 ; 生产环境: "1%"
 ; http://php.net/session.upload-progress.freq
 ;session.upload_progress.freq =  "1%"
 
-; The minimum delay between updates, in seconds
+; 更新之间的最小延迟（以秒为单位）
 ; 默认值: 1
 ; 开发环境: 1
 ; 生产环境: 1
 ; http://php.net/session.upload-progress.min-freq
 ;session.upload_progress.min_freq = "1"
 
-; Only write session data when session data is changed. Enabled by default.
+; 仅在更改会话数据时才写入会话数据。 默认启用。
 ; http://php.net/session.lazy-write
 ;session.lazy_write = On
 
 [Assertion]
-; Switch whether to compile assertions at all (to have no overhead at run-time)
+; 切换是否完全编译断言（运行时无开销）
 ; -1: Do not compile at all
 ;  0: Jump over assertion at run-time
 ;  1: Execute assertions
@@ -1394,123 +1297,111 @@ session.sid_bits_per_character = 5
 ; http://php.net/zend.assertions
 zend.assertions = -1
 
-; Assert(expr); active by default.
+; 断言（expr）; 默认情况下处于活动状态。
 ; http://php.net/assert.active
 ;assert.active = On
 
-; Throw an AssertionError on failed assertions
+;在失败的断言上抛出AssertionError
 ; http://php.net/assert.exception
 ;assert.exception = On
 
-; Issue a PHP warning for each failed assertion. (Overridden by assert.exception if active)
+; 为每个失败的断言发出PHP警告。 （如果被激活，则由assert.exception覆盖）
 ; http://php.net/assert.warning
 ;assert.warning = On
 
-; Don't bail out by default.
+; 默认情况下不要更改。
 ; http://php.net/assert.bail
 ;assert.bail = Off
 
-; User-function to be called if an assertion fails.
+; 断言失败时要调用的函数。
 ; http://php.net/assert.callback
 ;assert.callback = 0
 
 [COM]
-; path to a file containing GUIDs, IIDs or filenames of files with TypeLibs
+; 包含具有TypeLibs的文件的GUID，IID或文件名的文件的路径
 ; http://php.net/com.typelib-file
 ;com.typelib_file =
 
-; allow Distributed-COM calls
+; 允许分布式COM调用
 ; http://php.net/com.allow-dcom
 ;com.allow_dcom = true
 
-; autoregister constants of a component's typlib on com_load()
+; 在com_load()上自动注册组件的typelib常量
 ; http://php.net/com.autoregister-typelib
 ;com.autoregister_typelib = true
 
-; register constants casesensitive
+; 寄存器常量区分大小写
 ; http://php.net/com.autoregister-casesensitive
 ;com.autoregister_casesensitive = false
 
-; show warnings on duplicate constant registrations
+; 在重复的常量注册上显示警告
 ; http://php.net/com.autoregister-verbose
 ;com.autoregister_verbose = true
 
-; The default character set code-page to use when passing strings to and from COM objects.
+; 与COM对象之间传递字符串时使用的默认字符集代码页。
 ; Default: system ANSI code page
 ;com.code_page=
 
 [mbstring]
-; language for internal character representation.
-; This affects mb_send_mail() and mbstring.detect_order.
+; 内部字符表示的语言。
+; 这会影响mb_send_mail()和mbstring.detect_order。
 ; http://php.net/mbstring.language
 ;mbstring.language = Japanese
 
-; Use of this INI entry is deprecated, use global internal_encoding instead.
-; internal/script encoding.
-; Some encoding cannot work as internal encoding. (e.g. SJIS, BIG5, ISO-2022-*)
-; If empty, default_charset or internal_encoding or iconv.internal_encoding is used.
-; The precedence is: default_charset < internal_encoding < iconv.internal_encoding
+; 不建议使用此INI条目，而应使用global internal_encoding
+; 如果为空，则使用default_charset或internal_encoding或iconv.internal_encoding。
+; 优先级为：default_charset < internal_encoding < iconv.internal_encoding
 ;mbstring.internal_encoding =
 
-; Use of this INI entry is deprecated, use global input_encoding instead.
-; http input encoding.
-; mbstring.encoding_translation = On is needed to use this setting.
-; If empty, default_charset or input_encoding or mbstring.input is used.
-; The precedence is: default_charset < input_encoding < mbsting.http_input
+; 不建议使用此INI条目，而应使用global input_encoding。
+; http输入编码。
+; mbstring.encoding_translation = 需要使用此设置。
+; 如果为空，则使用default_charset或input_encoding或mbstring.input。
+; 优先级为：default_charset < input_encoding < mbstring.http_input
 ; http://php.net/mbstring.http-input
 ;mbstring.http_input =
 
-; Use of this INI entry is deprecated, use global output_encoding instead.
-; http output encoding.
-; mb_output_handler must be registered as output buffer to function.
-; If empty, default_charset or output_encoding or mbstring.http_output is used.
-; The precedence is: default_charset < output_encoding < mbstring.http_output
-; To use an output encoding conversion, mbstring's output handler must be set
-; otherwise output encoding conversion cannot be performed.
+; 不建议使用此INI条目，而应使用全局output_encoding。
+; mb_output_handler必须注册为输出缓冲区才能起作用。
+; 如果为空，则使用default_charset或output_encoding或mbstring.http_output。
+; 优先级为：default_charset < output_encoding < mbstring.http_output
+; 要使用输出编码转换，必须设置mbstring的输出处理程序，否则无法执行输出编码转换。
 ; http://php.net/mbstring.http-output
 ;mbstring.http_output =
 
-; enable automatic encoding translation according to
-; mbstring.internal_encoding setting. Input chars are
-; converted to internal encoding by setting this to On.
-; Note: Do _not_ use automatic encoding translation for
-;       portable libs/applications.
+; 根据mbstring.internal_encoding设置启用自动编码转换。 
+; 通过将输入字符设置为开将其转换为内部编码。
+; Note: 不要对可移植的库/应用程序使用自动编码转换。
 ; http://php.net/mbstring.encoding-translation
 ;mbstring.encoding_translation = Off
 
-; automatic encoding detection order.
-; "auto" detect order is changed according to mbstring.language
+; 自动编码检测顺序。
 ; http://php.net/mbstring.detect-order
 ;mbstring.detect_order = auto
 
-; substitute_character used when character cannot be converted
-; one from another
+; 无法将字符彼此转换时使用的replace_character
 ; http://php.net/mbstring.substitute-character
 ;mbstring.substitute_character = none
 
-; enable strict encoding detection.
-; Default: Off
+; 启用严格的编码检测。
+; 默认值：Off
 ;mbstring.strict_detection = On
 
-; This directive specifies the regex pattern of content types for which mb_output_handler()
-; is activated.
+; 此伪指令指定激活了mb_output_handler()的内容类型的正则表达式模式。
 ; Default: mbstring.http_output_conv_mimetype=^(text/|application/xhtml\+xml)
 ;mbstring.http_output_conv_mimetype=
 
-; This directive specifies maximum stack depth for mbstring regular expressions. It is similar
-; to the pcre.recursion_limit for PCRE.
+; 该指令为mbstring正则表达式指定最大堆栈深度。 它类似于PCRE的pcre.recursion_limit。
 ; Default: 100000
 ;mbstring.regex_stack_limit=100000
 
-; This directive specifies maximum retry count for mbstring regular expressions. It is similar
-; to the pcre.backtrack_limit for PCRE.
+; 此伪指令指定mbstring正则表达式的最大重试计数。 它类似于PCRE的pcre.backtrack_limit。
 ; Default: 1000000
 ;mbstring.regex_retry_limit=1000000
 
 [gd]
-; Tell the jpeg decode to ignore warnings and try to create
-; a gd image. The warning will then be displayed as notices
-; disabled by default
+; 告诉jpeg解码忽略警告并尝试创建gd图像。 
+; 该警告将默认显示为禁用通知
 ; http://php.net/gd.jpeg-ignore-warning
 ;gd.jpeg_ignore_warning = 1
 
@@ -1539,222 +1430,195 @@ zend.assertions = -1
 ;exif.decode_jis_intel    = JIS
 
 [Tidy]
-; The path to a default tidy configuration file to use when using tidy
+; 使用tidy时要使用的默认tidy配置文件的路径
 ; http://php.net/tidy.default-config
 ;tidy.default_config = /usr/local/lib/php/default.tcfg
 
-; Should tidy clean and repair output automatically?
-; WARNING: Do not use this option if you are generating non-html content
-; such as dynamic images
+; 是否应该整理整洁并自动修复输出？
+; 警告：如果要生成非HTML内容（例如动态图像），请不要使用此选项
 ; http://php.net/tidy.clean-output
 tidy.clean_output = Off
 
 [soap]
-; Enables or disables WSDL caching feature.
+; 启用或禁用WSDL缓存功能。
 ; http://php.net/soap.wsdl-cache-enabled
 soap.wsdl_cache_enabled=1
 
-; Sets the directory name where SOAP extension will put cache files.
+; 设置SOAP扩展将缓存文件放入的目录名称。
 ; http://php.net/soap.wsdl-cache-dir
 soap.wsdl_cache_dir="/tmp"
 
-; (time to live) Sets the number of second while cached file will be used
-; instead of original one.
+;（生存时间）设置将使用缓存文件而不是原始文件的秒数。
 ; http://php.net/soap.wsdl-cache-ttl
 soap.wsdl_cache_ttl=86400
 
-; Sets the size of the cache limit. (Max. number of WSDL files to cache)
+; 要缓存的WSDL文件的最大数量。
 soap.wsdl_cache_limit = 5
 
 [sysvshm]
-; A default size of the shared memory segment
+; 共享内存段的默认大小
 ;sysvshm.init_mem = 10000
 
 [ldap]
-; Sets the maximum number of open links or -1 for unlimited.
+; 设置打开链接的最大数量，或设置为-1（无限制）。
 ldap.max_links = -1
 
 [dba]
 ;dba.default_handler=
 
 [opcache]
-; Determines if Zend OPCache is enabled
+; 确定是否启用Zend OPCache
 ;opcache.enable=1
 
-; Determines if Zend OPCache is enabled for the CLI version of PHP
+; 确定是否为PHP的CLI版本启用了Zend OPCache
 ;opcache.enable_cli=0
 
-; The OPcache shared memory storage size.
+; OPcache共享内存的存储大小。
 ;opcache.memory_consumption=128
 
-; The amount of memory for interned strings in Mbytes.
+; 内联字符串的内存量（以兆字节为单位）。
 ;opcache.interned_strings_buffer=8
 
-; The maximum number of keys (scripts) in the OPcache hash table.
-; Only numbers between 200 and 1000000 are allowed.
+; OPcache哈希表中的最大键（脚本）数。
+; 仅允许使用200到1000000之间的数字。
 ;opcache.max_accelerated_files=10000
 
-; The maximum percentage of "wasted" memory until a restart is scheduled.
+; 在计划重新启动之前，“已浪费”内存的最大百分比。
 ;opcache.max_wasted_percentage=5
 
-; When this directive is enabled, the OPcache appends the current working
-; directory to the script key, thus eliminating possible collisions between
-; files with the same name (basename). Disabling the directive improves
-; performance, but may break existing applications.
+; 启用此指令后，OPcache会将当前工作目录附加到脚本键，从而消除了具有相同名称（基名）的文件之间可能发生的冲突。 
+; 禁用指令可以提高性能，但可能会破坏现有的应用程序。
 ;opcache.use_cwd=1
 
-; When disabled, you must reset the OPcache manually or restart the
-; webserver for changes to the filesystem to take effect.
+; 禁用后，必须手动重置OPcache或重新启动Web服务器，以使对文件系统的更改生效。
 ;opcache.validate_timestamps=1
 
-; How often (in seconds) to check file timestamps for changes to the shared
-; memory storage allocation. ("1" means validate once per second, but only
-; once per request. "0" means always validate)
+; 检查文件时间戳以查看共享内存存储分配更改的频率（以秒为单位）。（“1”表示每秒验证一次，但每个请求仅一次。“0”表示始终验证）
 ;opcache.revalidate_freq=2
 
-; Enables or disables file search in include_path optimization
+; 在include_path优化中启用或禁用文件搜索
 ;opcache.revalidate_path=0
 
-; If disabled, all PHPDoc comments are dropped from the code to reduce the
-; size of the optimized code.
+; 如果禁用，则会从代码中删除所有PHPDoc注释，以减小优化代码的大小。
 ;opcache.save_comments=1
 
-; Allow file existence override (file_exists, etc.) performance feature.
+; 允许文件存在覆盖（file_exists等）性能功能。
 ;opcache.enable_file_override=0
 
-; A bitmask, where each bit enables or disables the appropriate OPcache
-; passes
+; 位掩码，其中每个位启用或禁用适当的OPcache传递
 ;opcache.optimization_level=0x7FFFBFFF
 
 ;opcache.dups_fix=0
 
-; The location of the OPcache blacklist file (wildcards allowed).
-; Each OPcache blacklist file is a text file that holds the names of files
-; that should not be accelerated. The file format is to add each filename
-; to a new line. The filename may be a full path or just a file prefix
-; (i.e., /var/www/x  blacklists all the files and directories in /var/www
-; that start with 'x'). Line starting with a ; are ignored (comments).
+; OPcache黑名单文件的位置（允许使用通配符）。
 ;opcache.blacklist_filename=
 
-; Allows exclusion of large files from being cached. By default all files
-; are cached.
+; 允许从缓存中排除大型文件。 默认情况下，所有文件都被缓存。
 ;opcache.max_file_size=0
 
-; Check the cache checksum each N requests.
-; The 默认值 of "0" means that the checks are disabled.
+; 每N个请求检查一次缓存校验和。
+; 默认值“ 0”表示禁用检查。
 ;opcache.consistency_checks=0
 
-; How long to wait (in seconds) for a scheduled restart to begin if the cache
-; is not being accessed.
+; 如果未访问缓存，则要等待多长时间（以秒为单位）以开始计划的重新启动。
 ;opcache.force_restart_timeout=180
 
-; OPcache error_log file name. Empty string assumes "stderr".
+; OPcache error_log文件名。 
+; 空字符串假定为“ stderr”。
 ;opcache.error_log=
 
-; All OPcache errors go to the Web server log.
-; By default, only fatal errors (level 0) or errors (level 1) are logged.
-; You can also enable warnings (level 2), info messages (level 3) or
-; debug messages (level 4).
+; 所有OPcache错误都转到Web服务器日志中。 
+; 默认情况下，仅记录致命错误（级别0）或错误（级别1）。
+; 您还可以启用warnings（级别2），info messages（级别3）或 debug messages（级别4）。
 ;opcache.log_verbosity_level=1
 
-; Preferred Shared Memory back-end. Leave empty and let the system decide.
+; 首选共享内存后端。 
+; 留空，让系统决定。
 ;opcache.preferred_memory_model=
 
-; Protect the shared memory from unexpected writing during script execution.
-; Useful for internal debugging only.
+; 在脚本执行期间保护共享内存，防止意外写入。
+; 仅对内部调试有用。
 ;opcache.protect_memory=0
 
-; Allows calling OPcache API functions only from PHP scripts which path is
-; started from specified string. The default "" means no restriction
+; 仅允许从PHP脚本（其路径从指定的字符串开始）调用OPcache API函数。
+; 默认的“”表示没有限制
 ;opcache.restrict_api=
 
-; Mapping base of shared memory segments (for Windows only). All the PHP
-; processes have to map shared memory into the same address space. This
-; directive allows to manually fix the "Unable to reattach to base address"
-; errors.
+; 共享内存段的映射基础（仅适用于Windows）。
+; 所有PHP进程都必须将共享内存映射到相同的地址空间。 This
+; 所有PHP进程都必须将共享内存映射到相同的地址空间。
 ;opcache.mmap_base=
 
-; Facilitates multiple OPcache instances per user (for Windows only). All PHP
-; processes with the same cache ID and user share an OPcache instance.
+; 为每个用户提供多个OPcache实例（仅适用于Windows）。 
+; 具有相同缓存ID和用户的所有PHP进程共享一个OPcache实例。
 ;opcache.cache_id=
 
-; Enables and sets the second level cache directory.
-; It should improve performance when SHM memory is full, at server restart or
-; SHM reset. The default "" disables file based caching.
+; 启用并设置二级缓存目录。
+; SHM内存已满，服务器重新启动或SHM重置时，它应该提高性能。 默认的“”禁用基于文件的缓存。
 ;opcache.file_cache=
 
-; Enables or disables opcode caching in shared memory.
+; 启用或禁用共享内存中的操作码缓存。
 ;opcache.file_cache_only=0
 
-; Enables or disables checksum validation when script loaded from file cache.
+; 从文件缓存加载脚本时启用或禁用校验和验证。
 ;opcache.file_cache_consistency_checks=1
 
-; Implies opcache.file_cache_only=1 for a certain process that failed to
-; reattach to the shared memory (for Windows only). Explicitly enabled file
-; cache is required.
+; 表示opcache.file_cache_only = 1表示某个进程无法重新连接到共享内存（仅适用于Windows）。
+; 需要明确启用文件缓存。
 ;opcache.file_cache_fallback=1
 
-; Enables or disables copying of PHP code (text segment) into HUGE PAGES.
-; This should improve performance, but requires appropriate OS configuration.
+; 启用或禁用将PHP代码（文本段）复制到HUGE PAGES中。
+; 这样可以提高性能，但是需要适当的OS配置。
 ;opcache.huge_code_pages=1
 
-; Validate cached file permissions.
+; 验证缓存的文件权限。
 ;opcache.validate_permission=0
 
-; Prevent name collisions in chroot'ed environment.
+; 防止在chroot环境中发生名称冲突。
 ;opcache.validate_root=0
 
-; If specified, it produces opcode dumps for debugging different stages of
-; optimizations.
+; 如果指定，它将生成用于调试优化的不同阶段的操作码转储。
 ;opcache.opt_debug_level=0
 
-; Specifies a PHP script that is going to be compiled and executed at server
-; start-up.
+; 指定将在服务器启动时编译和执行的PHP脚本。
 ; http://php.net/opcache.preload
 ;opcache.preload=
 
-; Preloading code as root is not allowed for security reasons. This directive
-; facilitates to let the preloading to be run as another user.
+; 出于安全原因，不允许将代码作为root预加载。 
+; 该指令有助于使预加载以另一个用户的身份运行。
 ; http://php.net/opcache.preload_user
 ;opcache.preload_user=
 
-; Prevents caching files that are less than this number of seconds old. It
-; protects from caching of incompletely updated files. In case all file updates
-; on your site are atomic, you may increase performance by setting it to "0".
+; 防止缓存少于此秒数的文件。
+; 它可以防止缓存未完全更新的文件。 
+; 如果您网站上的所有文件更新都是原子更新，则可以通过将其设置为“ 0”来提高性能。
 ;opcache.file_update_protection=2
 
-; Absolute path used to store shared lockfiles (for *nix only).
+; 用于存储共享锁文件的绝对路径（仅适用于* nix）。
 ;opcache.lockfile_path=/tmp
 
 [curl]
-; A 默认值 for the CURLOPT_CAINFO option. This is required to be an
-; absolute path.
+; CURLOPT_CAINFO选项的默认值。
+; 这是绝对路径。
 ;curl.cainfo =
 
 [openssl]
-; The location of a Certificate Authority (CA) file on the local filesystem
-; to use when verifying the identity of SSL/TLS peers. Most users should
-; not specify a value for this directive as PHP will attempt to use the
-; OS-managed cert stores in its absence. If specified, this value may still
-; be overridden on a per-stream basis via the "cafile" SSL stream context
-; option.
+; 验证SSL/TLS对等方的身份时要在本地文件系统上使用的证书颁发机构（CA）文件的位置。
+; 大多数用户不应为此指令指定值，因为PHP会在缺少该指令的情况下尝试使用OS管理的证书存储。
 ;openssl.cafile=
 
-; If openssl.cafile is not specified or if the CA file is not found, the
-; directory pointed to by openssl.capath is searched for a suitable
-; certificate. This value must be a correctly hashed certificate directory.
-; Most users should not specify a value for this directive as PHP will
-; attempt to use the OS-managed cert stores in its absence. If specified,
-; this value may still be overridden on a per-stream basis via the "capath"
-; SSL stream context option.
+; 如果未指定openssl.cafile或未找到CA文件，则在openssl.capath指向的目录中搜索合适的证书。
+; 此值必须是正确散列的证书目录。
+; 大多数用户不应为此指令指定值，因为PHP会在缺少该指令的情况下尝试使用OS管理的证书存储。 If specified,
 ;openssl.capath=
 
 [ffi]
-; FFI API restriction. Possible values:
+; FFI API限制。
+; 可能的值:
 ; "preload" - enabled in CLI scripts and preloaded files (default)
 ; "false"   - always disabled
 ; "true"    - always enabled
 ;ffi.enable=preload
 
-; List of headers files to preload, wildcard patterns allowed.
+; 要预加载的头文件列表，允许使用通配符模式。
 ;ffi.preload=
