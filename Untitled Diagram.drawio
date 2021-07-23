@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-23T00:48:24.128Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" etag="m6HeCaFEb8haTnf-PQYu" version="14.9.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-23T00:49:34.345Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" etag="Zt-XGj0ZUgPQZrCm8Z_i" version="14.9.0" type="github">
   <diagram id="q-3CP5ShEm9sUq8IMGzO" name="Page-1">
     <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" background="none" math="0" shadow="1">
       <root>
@@ -509,7 +509,7 @@
           <mxGeometry x="30" width="200" height="30" as="geometry" />
         </mxCell>
         <mxCell id="D-r3054c6TursKJ-a7I4-66" value="store_config_data" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" parent="1" vertex="1">
-          <mxGeometry x="1451" y="730" width="230" height="260" as="geometry" />
+          <mxGeometry x="1451" y="880" width="230" height="260" as="geometry" />
         </mxCell>
         <mxCell id="D-r3054c6TursKJ-a7I4-67" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="D-r3054c6TursKJ-a7I4-66" vertex="1">
           <mxGeometry y="30" width="230" height="30" as="geometry" />
@@ -668,70 +668,70 @@
           <mxGeometry x="30" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--21" value="store_config_data_history" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;" parent="1" vertex="1">
-          <mxGeometry x="1891" y="730" width="210" height="250" as="geometry" />
+          <mxGeometry x="1891" y="880" width="239" height="260" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--22" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4fsKQ0ClsYr6Pzv_fE0--21" vertex="1">
-          <mxGeometry y="30" width="210" height="30" as="geometry" />
+          <mxGeometry y="30" width="239" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--23" value="PK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--22" vertex="1">
           <mxGeometry width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--24" value="id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--22" vertex="1">
-          <mxGeometry x="30" width="180" height="30" as="geometry" />
+          <mxGeometry x="30" width="209" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--25" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4fsKQ0ClsYr6Pzv_fE0--21" vertex="1">
-          <mxGeometry y="60" width="210" height="30" as="geometry" />
+          <mxGeometry y="60" width="239" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--26" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--25" vertex="1">
           <mxGeometry width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--27" value="store_code" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--25" vertex="1">
-          <mxGeometry x="30" width="180" height="30" as="geometry" />
+          <mxGeometry x="30" width="209" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--28" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4fsKQ0ClsYr6Pzv_fE0--21" vertex="1">
-          <mxGeometry y="90" width="210" height="30" as="geometry" />
+          <mxGeometry y="90" width="239" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--29" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--28" vertex="1">
           <mxGeometry width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--30" value="business_code" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--28" vertex="1">
-          <mxGeometry x="30" width="180" height="30" as="geometry" />
+          <mxGeometry x="30" width="209" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--31" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4fsKQ0ClsYr6Pzv_fE0--21" vertex="1">
-          <mxGeometry y="120" width="210" height="30" as="geometry" />
+          <mxGeometry y="120" width="239" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--32" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--31" vertex="1">
           <mxGeometry width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--33" value="unique_code" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--31" vertex="1">
-          <mxGeometry x="30" width="180" height="30" as="geometry" />
+          <mxGeometry x="30" width="209" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--34" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4fsKQ0ClsYr6Pzv_fE0--21" vertex="1">
-          <mxGeometry y="150" width="210" height="30" as="geometry" />
+          <mxGeometry y="150" width="239" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--35" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--34" vertex="1">
           <mxGeometry width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--36" value="config_tpl_code" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--34" vertex="1">
-          <mxGeometry x="30" width="180" height="30" as="geometry" />
+          <mxGeometry x="30" width="209" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--37" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4fsKQ0ClsYr6Pzv_fE0--21" vertex="1">
-          <mxGeometry y="180" width="210" height="30" as="geometry" />
+          <mxGeometry y="180" width="239" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--38" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--37" vertex="1">
           <mxGeometry width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--39" value="config_tpl_version" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--37" vertex="1">
-          <mxGeometry x="30" width="180" height="30" as="geometry" />
+          <mxGeometry x="30" width="209" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--40" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4fsKQ0ClsYr6Pzv_fE0--21" vertex="1">
-          <mxGeometry y="210" width="210" height="30" as="geometry" />
+          <mxGeometry y="210" width="239" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--41" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--40" vertex="1">
           <mxGeometry width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--42" value="config_json" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="4fsKQ0ClsYr6Pzv_fE0--40" vertex="1">
-          <mxGeometry x="30" width="180" height="30" as="geometry" />
+          <mxGeometry x="30" width="209" height="30" as="geometry" />
         </mxCell>
         <mxCell id="4fsKQ0ClsYr6Pzv_fE0--56" value="store_brand" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=5;align=center;resizeLast=1;" parent="1" vertex="1">
           <mxGeometry x="41" y="240" width="250" height="210" as="geometry" />
@@ -1143,7 +1143,7 @@
         <mxCell id="1q3N5_K0L_sV2BDlK-wp-337" value="1. 模板操作需要保证安全，甚至建立审批机制，不然删除了重要业务字段，初始化数据后会造成灾难性的错误！&lt;br&gt;2. 是否需要建立一种模板快速回滚的机制？&lt;br&gt;3. 增加配置模板状态，发布模板是可以建立审核机制，只有审核通过状态的模板才允许发布及初始化&lt;br&gt;3. 加入了数据版本机制，那么如果一个旧系统一直使用版本为1的配置数据，而最新版本却到了10改怎么办？&lt;br&gt;4. 配置模板的版本在什么场景下才会往上增加？如果一直使用一个配置模板会有什么问题？&lt;br&gt;5. 动态的属性配置使用起来很方便，但是如何防止滥用捏？&lt;br&gt;6. 动态的属性配置基于中台原则之一：少开发多配置" style="shape=note;size=20;whiteSpace=wrap;html=1;fontColor=#003333;align=left;verticalAlign=top;" vertex="1" parent="1">
           <mxGeometry x="1451" y="30" width="690" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="1q3N5_K0L_sV2BDlK-wp-338" value="" style="endArrow=none;html=1;rounded=0;fontColor=#003333;entryX=-0.013;entryY=-0.033;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="4fsKQ0ClsYr6Pzv_fE0--12">
+        <mxCell id="1q3N5_K0L_sV2BDlK-wp-338" value="" style="endArrow=none;html=1;rounded=0;fontColor=#003333;entryX=0;entryY=0.033;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="D-r3054c6TursKJ-a7I4-28" target="D-r3054c6TursKJ-a7I4-67">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1221" y="790" as="sourcePoint" />
             <mxPoint x="1381" y="790" as="targetPoint" />
@@ -1156,10 +1156,10 @@
           <mxGeometry x="1" relative="1" as="geometry" />
         </mxCell>
         <mxCell id="1q3N5_K0L_sV2BDlK-wp-341" value="根据配置模板&lt;br&gt;生成配置数据" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontColor=#003333;" vertex="1" parent="1">
-          <mxGeometry x="1281" y="760" width="120" height="60" as="geometry" />
+          <mxGeometry x="1278" y="880" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="1q3N5_K0L_sV2BDlK-wp-345" value="1个业务场景的门店会有多个配置数据对应不同的配置版本" style="shape=note;size=20;whiteSpace=wrap;html=1;fontColor=#003333;align=left;verticalAlign=top;labelBackgroundColor=#FFFF99;" vertex="1" parent="1">
-          <mxGeometry x="1321" y="690" width="113" height="50" as="geometry" />
+          <mxGeometry x="1338" y="820" width="113" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
